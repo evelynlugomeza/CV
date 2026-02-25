@@ -1,0 +1,631 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap');
+
+
+:root {
+    --main-color: #18f7b8;
+    --color-blue: #042354;
+  }
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+  }
+  .contenedor{
+    width: 80%;
+    max-width: 1200px;
+    min-height: 100vh;
+    margin: 1px auto;
+    display: grid;
+    background: #E6CED6;
+    grid-template-columns: 60px repeat(2,1fr) 60px ;
+    grid-template-rows: repeat(15, auto);  
+    /*filter: drop-shadow(0 0 20px);*/
+    box-shadow: 0px 0px 110px 15px rgba(251, 111, 146, 0.788);
+  }
+  .hijo {
+    background: #fff;
+    /*padding: 20px;
+    border: 1px solid black;*/
+  }
+  /*ARMAR LA GRID PRINCIPAL*/
+  .hijo-1,
+  .hijo-12,
+  .hijo-13{
+    grid-column: 1 / 5;
+  }
+  .hijo-6{
+    grid-column: 1 / 2;
+    grid-row: 3 / 5;
+  }
+  .hijo-9{
+    grid-column: 4 / 5;
+    grid-row: 3 / 5;
+  }
+  /*FIN DEL ARMADO DE LA GRID PRINCIPAL*/
+  
+  
+  /*COLORES DE FONDO*/
+  .hijo-1,
+  .hijo-2,
+  .hijo-4,
+  .hijo-5,
+  .hijo-13{
+    background: #E6CED6;
+    text-align: center;
+  }
+  .hijo-7,
+  .hijo-10{
+    background: #FDF4F7;
+  }
+  
+  
+  /*ESTILO PARA LA FOTO HIJO-3*/
+  .hijo-3{
+    background: #FDF4F7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  .tarjeta{
+  width: 180px;
+  height: 200px;
+  background: #DDB1BF;
+  border-radius: 50%;
+  box-shadow: 16px 14px 20px #0000008c;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: movimiento 3s ease-in-out infinite;
+  cursor: pointer;
+  }
+  .tarjeta::before{
+    content: "";
+    position: absolute;
+    height: 270px;
+    width: 250px;
+    background-image: conic-gradient(red 20deg, transparent 120deg);
+    animation: rotar 2s linear infinite;
+  }
+  @keyframes rotar{
+    from{
+      transform: rotate(0deg);
+    }to{
+      transform: rotate(-360deg);
+    }
+  }
+  .tarjeta::after{
+    content: "";
+    position: absolute;
+    width: 170px;
+    height: 190px;
+    /*background-image: url(https://drive.google.com/thumbnail?sz=w1000&id=1chHBwS3Yg2kJrKVQnKpzCufFkc0pP94n);*/
+    background-image: url(img/evelyn_lugo.jpeg);
+    border-radius: 50%;
+    box-shadow: inset 16px 14px 20px #0000008c;
+  }
+  @keyframes movimiento{
+    0% {
+  transform: translateX(0);
+    }50% {
+  transform: translateX(-3rem);
+    }100% {
+  transform: translateX(0);
+    }
+  }
+  /* FIN HIJO-3 */
+  
+  
+  /*ESTILO PARA EL NOMBRE HIJO-4*/
+  .nombre-1,
+  .nombre-2{
+    font-size: 60px;
+    /*font-size: clamp(1.875rem, 1.071rem + 2.679vw, 3.75rem);*/
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 3px 4px 4px rgba(255, 255, 255, 0.9);
+  }
+  .nombre-1{
+    /*margin-top: 20px;
+    margin-left: 20px;
+    transition: all 2.2s ease-in-out;
+    color: #14FF72cb;*/
+
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.2s 1 forwards;
+  }
+  .nombre-2{
+    margin-top: -40px;
+    margin-left: 80px;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+  }
+  .nombre-3{
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 20px;
+    /*font-size: clamp(0.75rem, 0.536rem + 0.714vw, 1.25rem);*/
+    font-weight: bold;
+    padding: 5px;
+    background: #fff;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 2.2s ease-in-out;
+    transition: opacity 0.9s ease-out;
+    transition: all ease 500ms;
+    box-shadow: 0px 0px 10px 5px rgba(251, 111, 146, 0.336);
+    opacity: 0;
+    animation: animate 1s ease-in-out 1.1s 1 forwards;
+  }
+  @keyframes animate {
+    from {
+      opacity: 0;
+      transform: translate(0, 100px);
+      filter: blur(33px);
+    }
+    to {
+      opacity: 1;
+      transform: translate(0);
+      filter: blur(0);
+    }
+  }
+  /*.hijo-4:has(.nombre-3:hover) > :not(:hover){
+    color: #fb6f92;
+    opacity: 0.8;
+    scale: 1.05;
+  }
+  .nombre-1,
+  .nombre-2 {
+    background: linear-gradient(
+      to right,
+      #2f2f2f 20%,
+      #adb5bd 40%,
+      #adb5bd 60%,
+      #2f2f2f 80%
+    );
+    background-size: 200%;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: gilmer 6s linear infinite;
+  }
+  
+  
+  @keyframes gilmer {
+    to {
+      background-position: 200% center;
+    }
+  }*/
+  /* FIN HIJO-4*/
+  
+  
+  /*NOMBRES DE LOS HIJO 7,8*/
+  .hijo-7,
+  .hijo-8,
+  .info-2,
+  .info-4,
+  .exper-2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    text-align: center;
+  }
+  .titulos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    background: #E6CED6;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 1.2s ease;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 20, 0.336);
+  }
+  .titulos-1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    background: #E6CED6;
+    font-weight: bold;
+    font-size: clamp(1rem, 0.794rem + 0.506vw, 1.25rem);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 1.2s ease;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 20, 0.336);
+  }
+  .circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: .2rem solid #FDF4F7;
+    padding: 5px;
+    margin: 3px;
+    width: 35px;
+    height: 33px;
+    border-radius: 50%;
+    transition: all 1.2s ease;
+  }
+  @media (hover: hover){
+  /*.fa-solid:hover{
+  transform: scale(1.2, 1.2);
+    }*/
+  .nombre-3:hover{
+    color: #fb6f92;
+    scale: 1.04;
+  }
+  .titulos:hover {
+    color: #fb6f92;
+    scale: 1.04;
+  }
+  .titulos-1:hover{
+    color: #fb6f92;
+    scale: 1.04;
+  }
+  }
+  .titulos:active{color: #fb6f92;}
+  .titulos-1:active{color: #fb6f92;}
+  .nombre-3:active{color: #fb6f92;}
+  /*FIN DEL ESTILO NOMBRE*/
+  
+  
+  /*INICIO DE ESTILO PARA LA INFORMACION HIJO-10,11*/
+  .gridinfo{
+  background: #FDF4F7;
+  }
+  /*.info,
+  .exper{
+    border: 1px solid salmon;
+  }*/
+  .gridinfo,
+  .gridexperiencia{
+    display: grid;
+    grid-template-rows: 1fr;
+    /*display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;*/
+  }
+  .sanmarcos{
+    border: 2px solid #E6CED6;
+    border-radius: 25px 0 25px 0;
+    margin: 10px;
+    padding: 30px;
+    box-shadow: 0px 0px 10px 5px rgba(230, 206, 214, 0.925);
+    transition: all .5s ease-in-out;
+  }
+  .carro{
+    border: 2px solid #E6CED6;
+    border-radius: 25px 0 25px 0;
+    margin: 10px;
+    box-shadow: 0px 0px 10px 5px rgba(230, 206, 214, 0.925);
+  }
+  /*ESTILO DEL CARRUSEL*/
+  .details{
+    padding: 2.5rem 4rem 3rem;
+    height:20rem;
+  }
+  .sanmarcos, .table a{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
+  .sci {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+    .sanmarcos:hover{
+    transform: translateY(-5px);
+    }  
+  
+  /*FIN HIJO-10,11*/
+  
+  
+  /*p::first-letter {
+    color: #fb6f92;
+    font-size: 2rem;
+    line-height: 2.6rem;
+    font-weight: bold;
+    margin-right: 0.1rem;
+    vertical-align: sub;
+    word-wrap: break-word;
+  }*/
+  
+  
+  /*COLOR DE BORDES*/
+  .hijo-3{
+    border: 2px solid #ffafcc;
+    border-bottom: #FDF4F7;
+  }
+  .hijo-7{
+    border-left: 2px solid #ffafcc;
+    border-right: 2px solid #ffafcc;
+  }
+  .hijo-10{
+    border-left: 2px solid #ffafcc;
+    border-right: 2px solid #ffafcc;
+    border-bottom: 2px solid #ffafcc;
+  }
+  .hijo-13{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  text-align: center;
+  }
+  .copy{
+    background: #fff;
+    border-radius: 10px;
+    font-size: 10px;
+    color: #ffafcc;
+  }
+  .copy a{
+    color: #fb6f92;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .copy a:hover{
+    color: #ffafcc;
+  }
+  /*FIN COLORES BORDES*/
+  
+  /* ====================================================================== *
+                [D] INICIO DE LOS breakpoints PARA MOBILE
+  *====================================================================== */
+  
+  /*PRIMER BREACKPOINT PARA IPAD AIR*/
+  @media (870px  <= width <= 1200px){
+  .nombre-1,
+  .nombre-2{
+    font-size: 45px;
+  }
+  .nombre-1{
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  .nombre-2{
+    margin-top: -30px;
+    margin-left: 20px;
+  }
+  .nombre-3{
+    font-size: clamp(0.88rem, -0.095rem + 1.794vw, 1.25rem);
+    margin-left: 10px;
+  }
+  }
+  /*FIN DEL BR... IPAD*/
+  
+  
+  /*SEGUNDO BREACKPOINT PARA IPAD AIR*/
+  @media only screen and (750px  <= width <= 869px){
+  .nombre-1,
+  .nombre-2{
+    font-size: 35px;
+  }
+  .nombre-1{
+    margin-top: 4rem;
+    margin-left: 10px;
+  }
+  .nombre-2{
+    margin-top: -30px;
+    margin-left: 20px;
+  }
+  .nombre-3{
+    font-size: 12px;
+  }
+  }
+  /*FIN DEL BR... IPAD*/
+  
+  
+  /*INICIO DE LOS BREACKPOINT PARA MOVILES*/
+  @media only screen and (max-width:749px){
+    .contenedor{
+    width: 100%;
+    margin: 0px auto;
+    grid-template-columns: 30px 1fr 30px;
+    grid-template-rows: repeat(10, auto);
+    background: #E6CED6;
+  }
+  .hijo-1,
+  .hijo-12,
+  .hijo-13{
+    grid-column: 1 / 4;
+    height: 30px;
+  }
+  /*ELIMINAR 2 GRID*/
+  .hijo-6,
+  .hijo-9,
+  .hijo-12{display: none;}
+  /*----------------------*/
+  .hijo-2{
+    grid-column: 1 / 2;
+    grid-row: 2 / 8;
+  }
+  .hijo-3{
+    height: 18rem;
+    grid-column: 2/3;
+    grid-row: 3/4;
+  }
+  .hijo-4{
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  .hijo-5{
+    grid-column: 3 / 4;
+    grid-row: 2 / 8;
+  }
+  .hijo-10{
+    grid-column: 2 / 3;
+    grid-row: 6 / 5;
+    }
+  /*FONDO DE GRID MOVIL*/
+  .hijo-8,
+  .hijo-10,
+  .hijo-11{
+    background: #FDF4F7;
+  }
+  .hijo-8{
+    border-left: 2px solid #ffafcc;
+    border-right: 2px solid #ffafcc;
+  }
+  .hijo-10{
+    border-bottom: 2px solid #FDF4F7;
+    border-left: 2px solid #ffafcc;
+    border-right: 2px solid #ffafcc;
+  }
+  .hijo-11{
+    border-left: 2px solid #ffafcc;
+    border-right: 2px solid #ffafcc;
+    border-bottom: 2px solid #ffafcc;
+  }
+  .details {
+    height: 22rem;
+  }
+    }
+  
+  
+  /*ESTILOS PARA LOS MODALES*/
+  h5{
+    text-transform: uppercase;
+  }
+  p{
+    text-align: left;
+  }
+  
+  
+  /*FIN ESTILOS DE MODALES*/
+  /*ESTILOS ICONOS FLOTANTES*/
+  #btn-mas{
+    display: none;
+  }
+  .iconflontes{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+  }
+  .redes a, .icon-mas2{
+    display: block;
+    text-decoration: none;
+    background: #fb6f92;
+    color: #fff;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 10px 5px 20px rgba(0, 0, 0, 1.2);
+    transition: all 2.5s ease;
+    font-size: 2rem;
+  }
+  .redes a {
+    margin-bottom: -15px;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .redes a:hover{
+    background: #fff;
+    color: #fb6f92;
+  }
+  #btn-mas:checked~ .redes a{
+    margin-bottom: 10px;
+    opacity: 1;
+    visibility: visible;
+  }
+  .icon-mas2{
+    cursor: pointer;
+    background: #fb6f92;
+    font-size: 1.7rem;
+  }
+  #btn-mas:checked~ .btn-mas .icon-mas2{
+    transform: rotate(137deg);
+    font-size: 2rem;
+  }
+
+    /* ====================================================================== *
+          [D] INICIO DE ESTILAR LOS MODALES
+   *====================================================================== */
+  .modal-title {
+  color: var(--color-blue);
+  font-weight: bold;margin: 0px 10px 0px 50px;
+  }
+  .modal-body{
+    margin: 10px 40px 10px 50px;
+  }
+  .modal-body h1 {
+    font-family: "Source Serif Pro";
+    font-weight: bold;
+    font-style: italic;
+    font-size: 2.5rem;
+    line-height: 1.2;
+    text-align: center;
+    color: var(--color-blue)
+  }
+  .modal-body p {
+    color: var(--color-blue);
+    font-size: 1rem;
+  }
+  .modal-body p::first-letter {
+    color: var(--color-blue);
+    font-family: "Source Serif Pro";
+    font-size: 2rem;
+    line-height: 2.6rem;
+    font-weight: bold;
+    margin-right: 0.1rem;
+    vertical-align: sub;
+    word-wrap: break-word;
+    }
+  .modal-body a {
+    position: relative;
+    color: var(--color-blue);
+    text-decoration: none;
+    border: 2px solid var(--color-blue);
+    border-radius: 10px;
+    background: #D8EBFF;
+    font-weight: bold;
+    padding: 10px;
+    transition: 1.8s;
+  }
+  .modal-body a:hover {
+    background: var(--color-blue);
+    color: #D8EBFF;
+  }
+  .modal-body img {
+    width: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+    box-shadow: 0px 3px 5px rgba(15, 15, 15, .8);
+  }
+
+    /*Stilo para el Botton Up
+    #button-up {
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      bottom: 20px;
+      right: 20px;
+      height: 70px;
+      width: 70px;
+      border-radius: 50%;
+      background: rgba(134, 195, 58, .5);
+      color: #fff;
+      border: 0;
+      font-size: 35px;
+      transition: 0.5s ease-in-out;
+      cursor: pointer;
+      transform: scale(0);
+    }
+  
+    #button-up:hover {
+      background: var(--color-botones);
+    }
+  
+    Fin del stilo del botton Up*/
